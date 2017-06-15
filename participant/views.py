@@ -6,8 +6,6 @@ from django import forms
 from datetime import datetime
 from random import randint
 
-#def index(request):
-#   return HttpResponse("Hello, world.")
 
 def index(request):
     participants = participant.objects.all()
@@ -45,7 +43,6 @@ def index(request):
                     ranins.append(ranin)
                 
             winner=[participant.objects.all()[ranins[0]], participant.objects.all()[ranins[1]], participant.objects.all()[ranins[2]]]
-            #winner=[randint(1, count), randint(1, count), randint(1, count)]
                 
     parlen = participant.objects.all().count()
     return render(request, 'participant/index.html', {'participant_len': parlen, 'participants': participants,'errors': errors, 'form':form, 'winner': winner})
