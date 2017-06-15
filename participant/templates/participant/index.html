@@ -1,0 +1,49 @@
+<html>
+    <b><p>Тестовое задание №2!</p></b>
+    <p>Определяем победителей</p>   
+    <form action="" method="post">
+        <label><p>Всего участников зарегистрировано: {{participant_len}}</p></label> 
+        <input name="win" type="submit" value="Определить победителей">
+        {% csrf_token %}
+    </form>
+    <p>Победители: </p>
+    <ol>  
+            {% for win in winner %}
+               <li><p>{{win}}</p>
+        {% endfor %}
+    </ol>
+    <hr/>
+    <p>Регистрируем участников</p>  
+    {% if errors %}
+        <ul>
+            {% for error in errors %}
+                <li style="color: red;">{{ error }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+     
+    <form action="" method="post">
+        <label>Имя</label> 
+        <input name="nickname" type="text" value="{{ form.nickname }}">
+        <input name="reg" type="submit" value="Зарегистрировать">
+        <input name="del" type="submit" value="Удалить">
+        {% csrf_token %}
+    </form>
+        <hr/>
+    <p>Зарегестрированные участники:</p> 
+           <ol>  
+    <table table border=# tr valign=middle>
+        {% for participant in participants %}
+            <div>
+                <tr>  
+                    <td><p><li>{{participant}}</p> </td>
+                
+                <td><p>registered: {{ participant.reg_date }}</p></td>
+                </tr>
+        {% endfor %}
+                
+            </div>
+        
+    </table>
+</ol>
+</html>

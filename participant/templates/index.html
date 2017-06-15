@@ -1,0 +1,12 @@
+<html>
+    <p>Hi there!</p>
+    <p>It works!</p>
+    
+        {% for participant in participants %}
+            <div>
+                <p>registered: {{ participant.reg_date }}</p>
+                <p>{{participant}}</p>
+        {% endfor %}
+        </div>
+    
+</html>
