@@ -25,7 +25,7 @@ SECRET_KEY = 'rzc847l2^mc-d@dqjtr%@==c)r9v6nlzbb+uhqtbx)i46&13s-'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['valenook.pythonanywhere.com']
 
 
 # Application definition
