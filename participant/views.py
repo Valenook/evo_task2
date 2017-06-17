@@ -1,11 +1,11 @@
-from django.shortcuts import render
-from django.http import HttpResponse
-from .models import participant
-# Create your views here.
 from django import forms
+from django.shortcuts import render, render_to_response
+from django.http import HttpResponse
+
+from .models import participant
+
 from datetime import datetime
 from random import randint
-
 
 def index(request):
     participants = participant.objects.all()
@@ -35,7 +35,7 @@ def index(request):
             i=0
             ranins=[]
             while i<3:
-                ranin=randint(1, count-1)
+                ranin=randint(0, count-1)
                 if ranin in ranins:
                     continue
                 else:
@@ -46,4 +46,3 @@ def index(request):
                 
     parlen = participant.objects.all().count()
     return render(request, 'participant/index.html', {'participant_len': parlen, 'participants': participants,'errors': errors, 'form':form, 'winner': winner})
-
